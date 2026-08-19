@@ -1,0 +1,51 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Nine Keys of Simi Valley — English Treasure Hunt</title>
+  <meta name="description" content="A gamified treasure hunt across nine real Simi Valley locations that teaches business English with the Alternative Grammar method.">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/left_menu.css">
+  <link rel="stylesheet" href="assets/css/main_map.css">
+  <link rel="stylesheet" href="assets/css/place.css">
+  <link rel="stylesheet" href="assets/css/final_reveal.css">
+  <link rel="stylesheet" href="assets/css/credits.css">
+</head>
+<body>
+  <a class="skip-link" href="#content-area">Skip to content</a>
+
+  <div id="header-placeholder" data-section="header"></div>
+
+  <div class="layout">
+    <div id="menu-placeholder" data-section="left_menu"></div>
+    <div class="menu-backdrop" id="menu-backdrop" hidden></div>
+    <main id="content-area" class="content-area" tabindex="-1">
+      <p class="loading-note" data-i18n="shell.t01">Loading the map…</p>
+    </main>
+  </div>
+
+  <div id="footer-placeholder" data-section="footer"></div>
+
+  <!-- Reset confirmation modal (custom component, never window.confirm) -->
+  <div class="modal-backdrop" id="reset-modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="reset-modal-title" aria-describedby="reset-modal-text">
+      <h2 class="modal-title" id="reset-modal-title" data-i18n="shell.t02"><span aria-hidden="true">⚠️</span> Reset the hunt?</h2>
+      <p class="modal-text" id="reset-modal-text" data-i18n="shell.t03">
+        This clears every object you have collected and sends all nine locations back to "not visited".
+        Your progress cannot be recovered.
+      </p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="reset-cancel" data-i18n="shell.t04">Keep my progress</button>
+        <button type="button" class="btn btn-danger" id="reset-confirm" data-i18n="shell.t05">Yes, reset everything</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/game_engine.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

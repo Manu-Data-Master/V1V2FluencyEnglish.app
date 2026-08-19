@@ -1,0 +1,44 @@
+/* assets/css/credits.css */
+
+.credits-view {
+  display: flex;
+  justify-content: center;
+}
+
+.credits-card {
+  background: var(--color-white);
+  border: var(--border-hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-7) var(--space-6);
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+}
+
+.credits-card h2 { margin-bottom: var(--space-6); }
+
+.credits-block {
+  text-align: left;
+  border-top: 1px solid var(--color-sand-deep);
+  padding-top: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+
+.credits-block h3 {
+  font-size: var(--size-md);
+  margin-bottom: var(--space-3);
+}
+
+.credits-block p:last-child { margin-bottom: 0; }
+
+.credits-footer {
+  font-family: var(--font-utility);
+  font-size: var(--size-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-gold-deep);
+  border-top: 2px dashed var(--color-sand-deep);
+  padding-top: var(--space-5);
+  margin: 0;
+}

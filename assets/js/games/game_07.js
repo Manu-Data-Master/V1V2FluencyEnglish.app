@@ -7,25 +7,26 @@
   var element = utils.element;
 
   var CARDS = [
-    { front: "The call starts ___ 2:00.", back: "at 2:00", detail: "game07.detail.1" },
-    { front: "We launch ___ March.", back: "in March", detail: "game07.detail.2" },
-    { front: "The figures are ___ slide four.", back: "on slide four", detail: "game07.detail.3" },
-    { front: "The total came in ___ budget.", back: "under budget", detail: "game07.detail.4" },
-    { front: "The client answered ___ (angry).", back: "angrily", detail: "game07.detail.5" },
-    { front: "That was a ___ (quick) decision.", back: "quick", detail: "game07.detail.6" },
-    { front: "___ review the numbers. (suggest it to the room)", back: "Let's review the numbers.", detail: "game07.detail.7" },
-    { front: "We have worked together ___ 2019.", back: "since 2019", detail: "game07.detail.8" },
-    { front: "The pilot runs ___ Monday ___ Friday.", back: "from Monday to Friday", detail: "game07.detail.9" },
-    { front: "The ___ (present) is ready. Which word?", back: "presentation", detail: "game07.detail.10" },
-    { front: "How does -tion sound at the end of a word?", back: "shun", detail: "game07.detail.11" },
-    { front: "Our team works ___ Fridays.", back: "on Fridays", detail: "game07.detail.12" },
-    { front: "The report is ___ the shared folder.", back: "in the shared folder", detail: "game07.detail.13" },
-    { front: "She presented ___ (confident).", back: "confidently", detail: "game07.detail.14" }
+    { front: "The call starts ___ 2:00.", back: "at 2:00", detail: "At marks an exact point in time." },
+    { front: "We launch ___ March.", back: "in March", detail: "In wraps around months, years and seasons." },
+    { front: "The figures are ___ slide four.", back: "on slide four", detail: "On sits with surfaces — and with days: on Monday." },
+    { front: "The total came in ___ budget.", back: "under budget", detail: "Under means below the line you set." },
+    { front: "The client answered ___ (angry).", back: "angrily", detail: "An adverb describes an action verb; adjectives describe nouns." },
+    { front: "That was a ___ (quick) decision.", back: "quick", detail: "Decision is a noun, so it takes an adjective." },
+    { front: "___ review the numbers. (suggest it to the room)", back: "Let's review the numbers.", detail: "Let's + V2 is the fastest way to move a meeting." },
+    { front: "We have worked together ___ 2019.", back: "since 2019", detail: "Since marks one starting point." },
+    { front: "The pilot runs ___ Monday ___ Friday.", back: "from Monday to Friday", detail: "From … to … marks both ends of a period." },
+    { front: "The ___ (present) is ready. Which word?", back: "presentation", detail: "Nouns in -tion pair with V1: the presentation is ready." },
+    { front: "How does -tion sound at the end of a word?", back: "shun", detail: "informa-shun, produc-shun, nego-shee-a-shun." },
+    { front: "Our team works ___ Fridays.", back: "on Fridays", detail: "Days of the week take on." },
+    { front: "The report is ___ the shared folder.", back: "in the shared folder", detail: "In means inside something." },
+    { front: "She presented ___ (confident).", back: "confidently", detail: "The -ly form describes how the action happened." }
   ];
 
   function mount(container) {
     var shell = utils.createGameShell(container, "07", {
-      instructions: t("game07.instructions")
+      instructions: t("game07.instructions"),
+      howtoExample: "The call starts ___ 2:00. &rarr; at 2:00 (an exact point in time)."
     });
 
     var queue = utils.shuffle(CARDS);
@@ -74,7 +75,7 @@
 
       back.innerHTML = "";
       back.appendChild(element("h4", null, current.back));
-      back.appendChild(element("p", null, t(current.detail)));
+      back.appendChild(element("p", null, current.detail));
 
       flipRow.hidden = false;
       ratingRow.hidden = true;

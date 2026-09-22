@@ -8,94 +8,95 @@
 
   var QUESTIONS = [
     {
-      context: "game06.context.1",
+      context: "You are presenting to a board of directors",
       prompt: "___ I add one final point before we close?",
       options: ["May", "Must", "Did", "Should"],
       correct: "May",
-      note: "game06.note.1"
+      note: "May is the formal permission word — right for a board room."
     },
     {
-      context: "game06.context.2",
+      context: "Asking a teammate for a file",
       prompt: "___ you send me the deck when you have a minute?",
       options: ["Could", "Must", "Does", "Will be"],
       correct: "Could",
-      note: "game06.note.2"
+      note: "Could softens the request without making it formal."
     },
     {
-      context: "game06.context.3",
+      context: "A hard contractual deadline",
       prompt: "We ___ deliver the report before Friday.",
       options: ["must", "could", "may", "should"],
       correct: "must",
-      note: "game06.note.3"
+      note: "Must states an obligation with no room to negotiate."
     },
     {
-      context: "game06.context.4",
+      context: "Asking your manager for an opinion",
       prompt: "___ we raise the price for the enterprise plan?",
       options: ["Should", "Must", "May", "Did"],
       correct: "Should",
-      note: "game06.note.4"
+      note: "Should asks for an opinion, not for permission."
     },
     {
-      context: "game06.context.5",
+      context: "Starting a video call",
       prompt: "___ I share my screen?",
       options: ["Can", "Must", "Were", "Does"],
       correct: "Can",
-      note: "game06.note.5"
+      note: "Can is the everyday permission word between colleagues."
     },
     {
-      context: "game06.context.6",
+      context: "Checking a colleague's availability",
       prompt: "___ she join the call at four?",
       options: ["Can", "Must", "Is", "Did be"],
       correct: "Can",
-      note: "game06.note.6"
+      note: "Can asks about possibility, and the verb after it stays plain."
     },
     {
-      context: "game06.context.7",
+      context: "Giving advice to a new sales rep",
       prompt: "You ___ follow up within two days.",
       options: ["should", "may", "did", "were"],
       correct: "should",
-      note: "game06.note.7"
+      note: "Should is advice. Must would sound like an order."
     },
     {
-      context: "game06.context.8",
+      context: "A polite request to a client",
       prompt: "___ you confirm the delivery address?",
       options: ["Could", "Must", "Do be", "Should be"],
       correct: "Could",
-      note: "game06.note.8"
+      note: "Could is the safest register with a client."
     },
     {
-      context: "game06.context.9",
+      context: "Compliance requirement",
       prompt: "Every invoice ___ include the tax number.",
       options: ["must", "could", "may", "should be"],
       correct: "must",
-      note: "game06.note.9"
+      note: "A rule that cannot be broken takes must."
     },
     {
-      context: "game06.context.10",
+      context: "Formal request in writing",
       prompt: "___ we schedule the review for next week?",
       options: ["May", "Did", "Was", "Are"],
       correct: "May",
-      note: "game06.note.10"
+      note: "May keeps a written request formal and polite."
     },
     {
-      context: "game06.context.11",
+      context: "Choosing the correct form after a helper",
       prompt: "Should we ___ the discount?",
       options: ["approve", "approves", "approved", "approving"],
       correct: "approve",
-      note: "game06.note.11"
+      note: "The helper carries the tense, so the verb stays plain."
     },
     {
-      context: "game06.context.12",
+      context: "Negative recommendation in a strategy meeting",
       prompt: "We ___ not discount below ten percent.",
       options: ["should", "must be", "did be", "may be"],
       correct: "should",
-      note: "game06.note.12"
+      note: "Not sits straight after the helper: should not discount."
     }
   ];
 
   function mount(container) {
     var shell = utils.createGameShell(container, "06", {
-      instructions: t("game06.instructions")
+      instructions: t("game06.instructions"),
+      howtoExample: "We ___ deliver the report before Friday. &rarr; must (a hard deadline, no room to negotiate)."
     });
 
     var deck = utils.buildDeck(QUESTIONS, 30);
@@ -120,7 +121,7 @@
       deckIndex += 1;
       locked = false;
 
-      contextLine.textContent = t(current.context);
+      contextLine.textContent = current.context;
       prompt.textContent = current.prompt;
       grid.innerHTML = "";
 
@@ -141,14 +142,14 @@
           });
 
           if (option === current.correct) {
-            finished = shell.succeed(t("common.correct") + " " + t(current.note));
+            finished = shell.succeed(t("common.correct") + " " + current.note);
             if (finished) {
               return;
             }
             window.setTimeout(dealQuestion, 900);
           } else {
             button.classList.add("is-wrong");
-            shell.fail(t("common.notThisTime") + " " + t(current.note));
+            shell.fail(t("common.notThisTime") + " " + current.note);
             window.setTimeout(dealQuestion, 1600);
           }
         });

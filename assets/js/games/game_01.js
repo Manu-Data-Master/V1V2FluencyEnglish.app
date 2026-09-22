@@ -7,25 +7,26 @@
   var element = utils.element;
 
   var PAIRS = [
-    { word: "pitch", gesture: "game01.gesture.1" },
-    { word: "sign the contract", gesture: "game01.gesture.2" },
-    { word: "share the screen", gesture: "game01.gesture.3" },
-    { word: "cut the budget", gesture: "game01.gesture.4" },
-    { word: "hand over the account", gesture: "game01.gesture.5" },
-    { word: "raise a concern", gesture: "game01.gesture.6" },
-    { word: "close the deal", gesture: "game01.gesture.7" },
-    { word: "roll out the product", gesture: "game01.gesture.8" },
-    { word: "hit the target", gesture: "game01.gesture.9" },
-    { word: "walk the client through it", gesture: "game01.gesture.10" },
-    { word: "scale the team", gesture: "game01.gesture.11" },
-    { word: "flag the risk", gesture: "game01.gesture.12" }
+    { word: "pitch", gesture: "You stand up, open both hands and face the room" },
+    { word: "sign the contract", gesture: "You move your hand across a page and stop" },
+    { word: "share the screen", gesture: "You turn the laptop toward the client" },
+    { word: "cut the budget", gesture: "You draw a line and push half of it away" },
+    { word: "hand over the account", gesture: "You pass a folder to the person beside you" },
+    { word: "raise a concern", gesture: "You lift one finger and wait for the room" },
+    { word: "close the deal", gesture: "You shake a hand and let it go" },
+    { word: "roll out the product", gesture: "You unroll something wide across the table" },
+    { word: "hit the target", gesture: "You point once, straight at a spot on the wall" },
+    { word: "walk the client through it", gesture: "You trace a path with your finger, slowly" },
+    { word: "scale the team", gesture: "Your hands move apart, further and further" },
+    { word: "flag the risk", gesture: "You wave a small square of paper in the air" }
   ];
 
   var BOARD_SIZE = 4;
 
   function mount(container) {
     var shell = utils.createGameShell(container, "01", {
-      instructions: t("game01.instructions")
+      instructions: t("game01.instructions"),
+      howtoExample: "sign the contract &rarr; You move your hand across a page and stop."
     });
 
     var finished = false;
@@ -65,7 +66,7 @@
         return { gesture: pair.gesture, index: index };
       })).forEach(function (entry) {
         var gestureItem = element("li", null);
-        var gestureButton = element("button", "pair-button", t(entry.gesture));
+        var gestureButton = element("button", "pair-button", entry.gesture);
         gestureButton.type = "button";
         gestureButton.dataset.pairIndex = String(entry.index);
         gestureButton.addEventListener("click", function () {

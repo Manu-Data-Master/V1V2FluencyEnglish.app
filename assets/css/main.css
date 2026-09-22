@@ -431,6 +431,17 @@ a {
 .modal-title { color: var(--color-danger); font-size: var(--size-lg); }
 .modal-text { font-size: var(--size-sm); color: var(--color-ink-soft); }
 
+.modal-box.is-info { border-top-color: var(--color-gold); }
+.modal-title.is-info { color: var(--color-navy); }
+.modal-text .howto-example {
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: #fbf7ef;
+  border-left: 3px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+}
+.modal-text .howto-example strong { color: var(--color-navy); }
+
 .modal-actions {
   display: flex;
   gap: var(--space-3);

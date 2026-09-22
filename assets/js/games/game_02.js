@@ -33,7 +33,8 @@
 
   function mount(container) {
     var shell = utils.createGameShell(container, "02", {
-      instructions: t("game02.instructions")
+      instructions: t("game02.instructions"),
+      howtoExample: "launch &rarr; V2, an action verb (needs Do / Does / Did / Will). is &rarr; V1, no helper needed."
     });
 
     var deck = utils.buildDeck(WORDS, 40);

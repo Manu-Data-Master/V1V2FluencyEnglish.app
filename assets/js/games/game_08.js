@@ -7,31 +7,32 @@
   var element = utils.element;
 
   var FAMILIES = {
-    R: "game08.family.R",
-    E: "game08.family.E",
-    SHUN: "game08.family.SHUN"
+    R: "Angry dog R",
+    E: "Happy dog long E",
+    SHUN: "The -shun ending"
   };
 
   var WORDS = [
-    { word: "quarter", family: "R", tip: "game08.tip.1" },
-    { word: "meeting", family: "E", tip: "game08.tip.2" },
-    { word: "presentation", family: "SHUN", tip: "game08.tip.3" },
-    { word: "person", family: "R", tip: "game08.tip.4" },
-    { word: "team", family: "E", tip: "game08.tip.5" },
-    { word: "information", family: "SHUN", tip: "game08.tip.6" },
-    { word: "work", family: "R", tip: "game08.tip.7" },
-    { word: "agree", family: "E", tip: "game08.tip.8" },
-    { word: "production", family: "SHUN", tip: "game08.tip.9" },
-    { word: "return", family: "R", tip: "game08.tip.10" },
-    { word: "key", family: "E", tip: "game08.tip.11" },
-    { word: "negotiation", family: "SHUN", tip: "game08.tip.12" },
-    { word: "first", family: "R", tip: "game08.tip.13" },
-    { word: "stream", family: "E", tip: "game08.tip.14" }
+    { word: "quarter", family: "R", tip: "Two growls: quar-ter." },
+    { word: "meeting", family: "E", tip: "Hold the smile: mee-ting." },
+    { word: "presentation", family: "SHUN", tip: "presenta-shun." },
+    { word: "person", family: "R", tip: "per-son, tongue pulled back." },
+    { word: "team", family: "E", tip: "A long, wide vowel: teeem." },
+    { word: "information", family: "SHUN", tip: "informa-shun." },
+    { word: "work", family: "R", tip: "One low growl, no tap." },
+    { word: "agree", family: "E", tip: "The long E lands at the end." },
+    { word: "production", family: "SHUN", tip: "produc-shun." },
+    { word: "return", family: "R", tip: "The R closes the word." },
+    { word: "key", family: "E", tip: "Smile all the way through." },
+    { word: "negotiation", family: "SHUN", tip: "negotia-shun." },
+    { word: "first", family: "R", tip: "The R growls in the middle." },
+    { word: "stream", family: "E", tip: "Long vowel, short ending." }
   ];
 
   function mount(container) {
     var shell = utils.createGameShell(container, "08", {
-      instructions: t("game08.instructions")
+      instructions: t("game08.instructions"),
+      howtoExample: "quarter &rarr; Two growls: quar-ter (the Angry dog R)."
     });
 
     var deck = utils.buildDeck(WORDS, 30);
@@ -100,12 +101,12 @@
           return option.indexOf(current.word.toLowerCase()) !== -1;
         });
         if (matched) {
-          finished = shell.succeed(t("game08.fb.clean") + " " + t(current.tip));
+          finished = shell.succeed(t("game08.fb.clean") + " " + current.tip);
           if (!finished) {
             window.setTimeout(dealWord, 900);
           }
         } else {
-          shell.fail(t("game08.fb.retry", { tip: t(current.tip) }));
+          shell.fail(t("game08.fb.retry", { tip: current.tip }));
         }
       };
 
@@ -178,7 +179,7 @@
 
       optionGrid.innerHTML = "";
       utils.shuffle(Object.keys(FAMILIES)).forEach(function (familyKey) {
-        var button = element("button", "option-button", t(FAMILIES[familyKey]));
+        var button = element("button", "option-button", FAMILIES[familyKey]);
         button.type = "button";
         button.addEventListener("click", function () {
           if (finished || locked) {
@@ -188,7 +189,7 @@
           var buttons = optionGrid.querySelectorAll(".option-button");
           Array.prototype.forEach.call(buttons, function (node) {
             node.disabled = true;
-            if (node.textContent === t(FAMILIES[current.family])) {
+            if (node.textContent === FAMILIES[current.family]) {
               node.classList.add("is-correct");
             }
           });
@@ -201,7 +202,7 @@
             window.setTimeout(dealWord, 900);
           } else {
             button.classList.add("is-wrong");
-            shell.fail(t("game08.fb.family", { family: t(FAMILIES[current.family]), tip: t(current.tip) }));
+            shell.fail(t("game08.fb.family", { family: FAMILIES[current.family], tip: current.tip }));
             window.setTimeout(dealWord, 1700);
           }
         });

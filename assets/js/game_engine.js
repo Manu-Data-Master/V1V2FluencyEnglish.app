@@ -283,11 +283,22 @@
     var shell = element("div", "game-shell");
 
     var hud = element("div", "game-hud");
+    var howtoButton = element("button", "btn btn-ghost btn-howto");
+    howtoButton.type = "button";
+    howtoButton.innerHTML = "<span aria-hidden=\"true\">❓</span> " + t("shell.howtoButton");
+    howtoButton.addEventListener("click", function () {
+      var bodyHtml = "<p>" + (settings.instructions || "") + "</p>";
+      if (settings.howtoExample) {
+        bodyHtml += "<p class=\"howto-example\"><strong>" + t("shell.howtoExampleLabel") + ":</strong> " + settings.howtoExample + "</p>";
+      }
+      openHowtoModal(t("shell.howtoButton"), bodyHtml);
+    });
     var roundLabel = element("p", "game-round", t("game.round", { current: 1, total: totalRounds }));
     roundLabel.setAttribute("aria-live", "polite");
     var track = element("div", "progress-track");
     var fill = element("div", "progress-fill");
     track.appendChild(fill);
+    hud.appendChild(howtoButton);
     hud.appendChild(roundLabel);
     hud.appendChild(track);
 
@@ -391,6 +402,61 @@
       }
     };
   }
+
+  /* ---------- How to play modal (shared by every mini-game) ---------- */
+
+  var howtoModal = null;
+  var howtoModalTitle = null;
+  var howtoModalBody = null;
+  var howtoModalOk = null;
+  var howtoLastFocused = null;
+
+  function closeHowtoModal() {
+    if (!howtoModal) {
+      return;
+    }
+    howtoModal.hidden = true;
+    document.removeEventListener("keydown", handleHowtoModalKeys);
+    if (howtoLastFocused && howtoLastFocused.focus) {
+      howtoLastFocused.focus();
+    }
+  }
+
+  function handleHowtoModalKeys(event) {
+    if (event.key === "Escape") {
+      closeHowtoModal();
+    }
+  }
+
+  function openHowtoModal(title, bodyHtml) {
+    if (!howtoModal) {
+      return;
+    }
+    howtoLastFocused = document.activeElement;
+    howtoModalTitle.innerHTML = "<span aria-hidden=\"true\">🎮</span> " + title;
+    howtoModalBody.innerHTML = bodyHtml;
+    howtoModal.hidden = false;
+    howtoModalOk.focus();
+    document.addEventListener("keydown", handleHowtoModalKeys);
+  }
+
+  function wireHowtoModal() {
+    howtoModal = document.getElementById("howto-modal");
+    howtoModalTitle = document.getElementById("howto-modal-title");
+    howtoModalBody = document.getElementById("howto-modal-body");
+    howtoModalOk = document.getElementById("howto-modal-ok");
+    if (!howtoModal || !howtoModalOk) {
+      return;
+    }
+    howtoModalOk.addEventListener("click", closeHowtoModal);
+    howtoModal.addEventListener("click", function (event) {
+      if (event.target === howtoModal) {
+        closeHowtoModal();
+      }
+    });
+  }
+
+  wireHowtoModal();
 
   window.GameEngine = GameEngine;
   window.GameUtils = {

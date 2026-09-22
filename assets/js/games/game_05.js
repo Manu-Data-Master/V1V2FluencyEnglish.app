@@ -8,76 +8,76 @@
 
   var ITEMS = [
     {
-      task: "game05.task.1",
+      task: "Turn this into a question",
       source: "The client approved the budget.",
       answers: ["did the client approve the budget?"],
-      note: "game05.note.1"
+      note: "Did carries the past, so approve goes back to its plain form."
     },
     {
-      task: "game05.task.2",
+      task: "Turn this into a question",
       source: "She manages the Lima account.",
       answers: ["does she manage the lima account?"],
-      note: "game05.note.2"
+      note: "Does takes the -s away from manage."
     },
     {
-      task: "game05.task.3",
+      task: "Turn this into a question",
       source: "They will sign this week.",
       answers: ["will they sign this week?"],
-      note: "game05.note.3"
+      note: "Will simply moves to the front."
     },
     {
-      task: "game05.task.4",
+      task: "Make this negative",
       source: "We discount below ten percent.",
       answers: ["we do not discount below ten percent.", "we don't discount below ten percent."],
-      note: "game05.note.4"
+      note: "Helper plus not, and the verb stays plain."
     },
     {
-      task: "game05.task.5",
+      task: "Make this negative",
       source: "The team shipped the update.",
       answers: ["the team did not ship the update.", "the team didn't ship the update."],
-      note: "game05.note.5"
+      note: "Did not takes the past away from shipped."
     },
     {
-      task: "game05.task.6",
+      task: "Turn this into a question",
       source: "Marketing sent the report.",
       answers: ["did marketing send the report?"],
-      note: "game05.note.6"
+      note: "Sent becomes send once Did is in front."
     },
     {
-      task: "game05.task.7",
+      task: "Answer naturally in the affirmative",
       source: "Did he present the results?",
       answers: ["he presented the results."],
-      note: "game05.note.7"
+      note: "The natural answer drops the helper and puts the past on the verb."
     },
     {
-      task: "game05.task.8",
+      task: "Answer naturally in the affirmative",
       source: "Does she report to you?",
       answers: ["she reports to me."],
-      note: "game05.note.8"
+      note: "Without Does, third person singular gets its -s back."
     },
     {
-      task: "game05.task.9",
+      task: "Turn this into a question",
       source: "We hire two developers in March.",
       answers: ["do we hire two developers in march?"],
-      note: "game05.note.9"
+      note: "We takes Do, and hire stays plain."
     },
     {
-      task: "game05.task.10",
+      task: "Make this negative",
       source: "The client will renew the contract.",
       answers: ["the client will not renew the contract.", "the client won't renew the contract."],
-      note: "game05.note.10"
+      note: "Not sits between will and the verb."
     },
     {
-      task: "game05.task.11",
+      task: "Turn this into a question",
       source: "The campaign reached the target audience.",
       answers: ["did the campaign reach the target audience?"],
-      note: "game05.note.11"
+      note: "Reached becomes reach after Did."
     },
     {
-      task: "game05.task.12",
+      task: "Turn this into a question",
       source: "He closes deals every quarter.",
       answers: ["does he close deals every quarter?"],
-      note: "game05.note.12"
+      note: "Does removes the -s from closes."
     }
   ];
 
@@ -98,7 +98,8 @@
 
   function mount(container) {
     var shell = utils.createGameShell(container, "05", {
-      instructions: t("game05.instructions")
+      instructions: t("game05.instructions"),
+      howtoExample: "The client approved the budget. &rarr; Did the client approve the budget?"
     });
 
     var deck = utils.buildDeck(ITEMS, 30);
@@ -135,7 +136,7 @@
       current = deck[deckIndex];
       deckIndex += 1;
 
-      taskLine.textContent = t(current.task);
+      taskLine.textContent = current.task;
       prompt.textContent = current.source;
       input.value = "";
       input.disabled = false;
@@ -158,7 +159,7 @@
       if (isCorrect) {
         input.disabled = true;
         checkButton.disabled = true;
-        finished = shell.succeed(t("common.correct") + " " + t(current.note));
+        finished = shell.succeed(t("common.correct") + " " + current.note);
         if (finished) {
           return;
         }

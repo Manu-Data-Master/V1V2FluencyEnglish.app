@@ -8,88 +8,88 @@
 
   var SCENARIOS = [
     {
-      context: "game09.context.1",
+      context: "Quarterly review",
       sentence: "Sales came in below plan, so we had to revise the ___ for the next two quarters.",
       answers: ["forecast"],
-      label: "game09.label.1",
-      note: "game09.note.1"
+      label: "Noun",
+      note: "You revise, miss or beat a forecast."
     },
     {
-      context: "game09.context.2",
+      context: "Client kickoff",
       sentence: "We ___ new clients in two weeks, from contract to first delivery.",
       answers: ["onboard"],
-      label: "game09.label.2",
-      note: "game09.note.2"
+      label: "V2",
+      note: "You onboard a client, a team or a tool."
     },
     {
-      context: "game09.context.3",
+      context: "Pricing negotiation",
       sentence: "The buyer raised one ___ about the renewal terms.",
       answers: ["concern"],
-      label: "game09.label.3",
-      note: "game09.note.3"
+      label: "Noun",
+      note: "You raise, address or share a concern."
     },
     {
-      context: "game09.context.4",
+      context: "Product launch",
       sentence: "We ___ the campaign on Monday and measured results on Friday.",
       answers: ["launched"],
-      label: "game09.label.4",
-      note: "game09.note.4"
+      label: "V2 (past)",
+      note: "You launch a campaign, a product or a pilot."
     },
     {
-      context: "game09.context.5",
+      context: "Sales pipeline",
       sentence: "The team ___ three enterprise deals last month.",
       answers: ["closed"],
-      label: "game09.label.5",
-      note: "game09.note.5"
+      label: "V2 (past)",
+      note: "You close a deal — never finish it."
     },
     {
-      context: "game09.context.6",
+      context: "Board update",
       sentence: "Our margins are under ___ because logistics costs rose.",
       answers: ["pressure"],
-      label: "game09.label.6",
-      note: "game09.note.6"
+      label: "Noun",
+      note: "Margins, teams and budgets all come under pressure."
     },
     {
-      context: "game09.context.7",
+      context: "Stakeholder meeting",
       sentence: "Before we decide, let me ___ you through the numbers.",
       answers: ["walk"],
-      label: "game09.label.7",
-      note: "game09.note.7"
+      label: "V2",
+      note: "You walk someone through a document or a plan."
     },
     {
-      context: "game09.context.8",
+      context: "Marketing performance",
       sentence: "The ads reached the right audience, but they did not ___ our target.",
       answers: ["hit", "reach"],
-      label: "game09.label.8",
-      note: "game09.note.8"
+      label: "V2",
+      note: "You hit or miss a target."
     },
     {
-      context: "game09.context.9",
+      context: "Project risk log",
       sentence: "Please ___ any delivery risk in the shared tracker.",
       answers: ["flag", "raise"],
-      label: "game09.label.9",
-      note: "game09.note.9"
+      label: "V2",
+      note: "You flag a risk early, or raise it in the meeting."
     },
     {
-      context: "game09.context.10",
+      context: "Investor pitch",
       sentence: "The market ___ for this segment is roughly forty million dollars.",
       answers: ["opportunity", "size"],
-      label: "game09.label.10",
-      note: "game09.note.10"
+      label: "Noun",
+      note: "Market opportunity and market size both work here."
     },
     {
-      context: "game09.context.11",
+      context: "Account handover",
       sentence: "I will ___ the account to Ana before I go on leave.",
       answers: ["hand over", "transfer"],
-      label: "game09.label.11",
-      note: "game09.note.11"
+      label: "V2",
+      note: "You hand over an account, a project or a shift."
     },
     {
-      context: "game09.context.12",
+      context: "Contract review",
       sentence: "Legal has to ___ the terms before we sign.",
       answers: ["approve", "review"],
-      label: "game09.label.12",
-      note: "game09.note.12"
+      label: "V2",
+      note: "Legal reviews terms, then approves them."
     }
   ];
 
@@ -99,7 +99,8 @@
 
   function mount(container) {
     var shell = utils.createGameShell(container, "09", {
-      instructions: t("game09.instructions")
+      instructions: t("game09.instructions"),
+      howtoExample: "Sales came in below plan, so we had to revise the ___ for the next two quarters. &rarr; forecast (Noun)."
     });
 
     var deck = utils.buildDeck(SCENARIOS, 30);
@@ -138,9 +139,9 @@
       deckIndex += 1;
       attempts = 0;
 
-      contextLine.textContent = t(current.context);
+      contextLine.textContent = current.context;
       prompt.textContent = current.sentence;
-      hintLine.textContent = t("game09.ui.hint", { label: t(current.label), letter: current.answers[0].charAt(0) });
+      hintLine.textContent = t("game09.ui.hint", { label: current.label, letter: current.answers[0].charAt(0) });
       input.value = "";
       input.disabled = false;
       checkButton.disabled = false;
@@ -163,7 +164,7 @@
       if (isCorrect) {
         input.disabled = true;
         checkButton.disabled = true;
-        finished = shell.succeed(t("game09.fb.good") + " " + t(current.note));
+        finished = shell.succeed(t("game09.fb.good") + " " + current.note);
         if (finished) {
           return;
         }
@@ -172,7 +173,7 @@
         attempts += 1;
         if (attempts >= 2) {
           hintLine.textContent = t("game09.ui.hintLong", {
-            label: t(current.label),
+            label: current.label,
             length: current.answers[0].replace(/\s/g, "").length,
             letter: current.answers[0].charAt(0)
           });

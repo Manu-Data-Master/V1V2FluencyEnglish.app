@@ -7,23 +7,24 @@
   var element = utils.element;
 
   var SENTENCES = [
-    { parts: ["The team", "presents", "the new pricing."], note: "game03.note.1" },
-    { parts: ["Our client", "is", "happy."], note: "game03.note.2" },
-    { parts: ["Marketing", "approved", "the campaign."], note: "game03.note.3" },
-    { parts: ["The numbers", "were", "strong."], note: "game03.note.4" },
-    { parts: ["We", "closed", "three accounts."], note: "game03.note.5" },
-    { parts: ["The deck", "is", "ready."], note: "game03.note.6" },
-    { parts: ["Sales", "will send", "the proposal."], note: "game03.note.7" },
-    { parts: ["The launch", "was", "a success."], note: "game03.note.8" },
-    { parts: ["Our developers", "shipped", "the update."], note: "game03.note.9" },
-    { parts: ["The budget", "covers", "two quarters."], note: "game03.note.10" },
-    { parts: ["I", "manage", "the account."], note: "game03.note.11" },
-    { parts: ["The client", "signed", "the contract."], note: "game03.note.12" }
+    { parts: ["The team", "presents", "the new pricing."], note: "Subject, V2, noun. Nothing after the noun." },
+    { parts: ["Our client", "is", "happy."], note: "V1 takes a feeling as its noun." },
+    { parts: ["Marketing", "approved", "the campaign."], note: "Past V2, then the thing it acted on." },
+    { parts: ["The numbers", "were", "strong."], note: "Plural subject takes were." },
+    { parts: ["We", "closed", "three accounts."], note: "Subject first, always." },
+    { parts: ["The deck", "is", "ready."], note: "Short is not wrong. Short is the rule." },
+    { parts: ["Sales", "will send", "the proposal."], note: "Will keeps the verb plain." },
+    { parts: ["The launch", "was", "a success."], note: "Singular subject takes was." },
+    { parts: ["Our developers", "shipped", "the update."], note: "One subject, one verb, one noun." },
+    { parts: ["The budget", "covers", "two quarters."], note: "Third person singular adds the -s." },
+    { parts: ["I", "manage", "the account."], note: "First person keeps the verb plain." },
+    { parts: ["The client", "signed", "the contract."], note: "Past V2 needs no helper in a statement." }
   ];
 
   function mount(container) {
     var shell = utils.createGameShell(container, "03", {
-      instructions: t("game03.instructions")
+      instructions: t("game03.instructions"),
+      howtoExample: "The team | presents | the new pricing. &rarr; Subject, then V2, then the noun."
     });
 
     var deck = utils.buildDeck(SENTENCES, 30);
@@ -164,7 +165,7 @@
       var correct = answer.join(" ") === current.parts.join(" ");
       if (correct) {
         checkButton.disabled = true;
-        finished = shell.succeed(t("common.correct") + " " + t(current.note));
+        finished = shell.succeed(t("common.correct") + " " + current.note);
         if (finished) {
           return;
         }

@@ -14,7 +14,9 @@
     "t02": "<span aria-hidden=\"true\">⚠️</span> Reiniciar a caça?",
     "t03": "Isso apaga todos os objetos que você reuniu e devolve os nove lugares para «não visitado». Seu progresso não poderá ser recuperado.",
     "t04": "Manter meu progresso",
-    "t05": "Sim, reiniciar tudo"
+    "t05": "Sim, reiniciar tudo",
+    "howtoButton": "Como jogar",
+    "howtoExampleLabel": "Exemplo"
   },
   "header": {
     "t01": "Menu",
@@ -123,15 +125,19 @@
   "credits": {
     "t01": "Créditos",
     "t02": "Quem e o que está por trás desta caça",
-    "t03": "O método de ensino",
-    "t04": "Os nove conceitos vêm do sistema Alternative Grammar — o material próprio de ensino V1 / V2 / SVN do autor, escrito para adultos que precisam de um inglês que funcione, não de rótulos gramaticais. Os painéis de teoria reescrevem esse material para um público de negócios e marketing; a estrutura, o vocabulário do método e seus recursos mnemônicos pertencem ao autor.",
-    "t05": "O vale",
-    "t06": "Os nove lugares são locais reais de Simi Valley, Califórnia: a Ronald Reagan Presidential Library, Corriganville Park, Strathearn Historical Park, a Santa Susana Depot, o Chumash Indian Museum, Rocky Peak Park, a cruz de Mount McCoy, o Simi Valley Cultural Arts Center e Rancho Simi Community Park.",
-    "t07": "Os nove objetos, a Arquivista do Vale e a própria caça são ficção, escritos para este jogo e inspirados na história, na paisagem e na herança cinematográfica do vale.",
-    "t08": "A construção",
-    "t09": "HTML, CSS e JavaScript puros. Sem frameworks, sem build step, sem recursos externos. O progresso fica no armazenamento local do seu navegador sob uma única chave, então a caça lembra de você entre sessões e esquece você assim que pressiona Reiniciar caça.",
-    "t10": "As rodadas de pronúncia usam os recursos de voz do próprio navegador quando estão disponíveis, e passam para uma rodada de escuta quando não estão.",
-    "t11": "Nove lugares. Nove objetos. A ordem é sua."
+    "t03": "A autora",
+    "t04": "O método V1 / V2 / SVN que sustenta cada painel de teoria desta caça foi desenvolvido por <strong>Maria \"Marita\" Eborn</strong> — editora bilíngue, professora acadêmica e fundadora de projetos educacionais, radicada em Simi Valley, Califórnia. Os conceitos, o vocabulário do sistema e os recursos mnemônicos utilizados vêm do seu material de ensino original. <a class=\"author-link\" href=\"https://www.linkedin.com/in/maria-eborn-246564258\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn ↗</a>",
+    "t05": "O método de ensino",
+    "t06": "O método se apoia no TPR (Total Physical Response): associar cada palavra nova a um movimento ou uma imagem treina a recuperação rápida em vez da tradução lenta. Divide o trabalho entre duas funções — o hemisfério esquerdo armazena e prevê palavras, o hemisfério direito as produz com fluência em tempo real — e treina este último ligando cada palavra nova a algo físico antes que ela vire uma regra.",
+    "t07": "Todo verbo em inglês pertence a uma de duas famílias. <strong>V1</strong> — apelidado de \"o Chefão\" — é o verbo <em>to be</em>: forte, não precisa de auxiliar e é sempre seguido por um substantivo. <strong>V2</strong> cobre qualquer verbo de ação: \"fraco\" sozinho, sempre precisa de um auxiliar (Did / Do / Does / Will) para perguntar, e vira uma forma tipo substantivo com <em>-ing</em> ou <em>-ed</em> assim que fica ao lado de V1. Juntos alimentam a <strong>Regra de Sete</strong> — Sujeito + Verbo + Substantivo — apresentada como a fórmula por trás de cerca de 95% das respostas em inglês.",
+    "t08": "Sobre a gramática se apoia a técnica do dicionário pessoal: anotar palavras novas, identificar sua categoria gramatical, construir frases próprias com elas e praticar colocações até que uma palavra passe de vocabulário passivo — palavras que você reconhece — para vocabulário ativo — palavras que você realmente usa.",
+    "t09": "O vale",
+    "t10": "Os nove lugares são locais reais de Simi Valley, Califórnia: a Ronald Reagan Presidential Library, Corriganville Park, Strathearn Historical Park, a Santa Susana Depot, o Chumash Indian Museum, Rocky Peak Park, a cruz de Mount McCoy, o Simi Valley Cultural Arts Center e Rancho Simi Community Park.",
+    "t11": "Os nove objetos, a Arquivista do Vale e a própria caça são ficção, escritos para este jogo e inspirados na história, na paisagem e na herança cinematográfica do vale.",
+    "t12": "Memória de sessões",
+    "t13": "O progresso fica no armazenamento local do seu navegador sob uma única chave, então a caça lembra de você entre sessões e esquece você assim que pressiona Reiniciar caça.",
+    "t14": "As rodadas de pronúncia usam os recursos de voz do próprio navegador quando estão disponíveis, e passam para uma rodada de escuta quando não estão.",
+    "t15": "Nove lugares. Nove objetos. A ordem é sua."
   },
   "place01": {
     "t01": "Lugar 1 · Ronald Reagan Presidential Library",
@@ -381,20 +387,6 @@
       "pickPhrase": "Comece por uma expressão à esquerda.",
       "matched": "Emparelhados. Essa imagem já está ligada à expressão.",
       "wrong": "Esse não. Imagine o movimento de novo e tente outro."
-    },
-    "gesture": {
-      "1": "Você se levanta, abre as duas mãos e encara a sala",
-      "2": "Você desliza a mão por uma folha e para",
-      "3": "Você vira o notebook para o cliente",
-      "4": "Você traça uma linha e empurra metade para longe",
-      "5": "Você passa uma pasta para a pessoa ao lado",
-      "6": "Você levanta um dedo e espera a sala",
-      "7": "Você aperta uma mão e solta",
-      "8": "Você desenrola algo largo sobre a mesa",
-      "9": "Você aponta uma vez, direto para um ponto na parede",
-      "10": "Você percorre um caminho com o dedo, devagar",
-      "11": "Suas mãos se afastam, cada vez mais",
-      "12": "Você balança um papelzinho quadrado no ar"
     }
   },
   "game02": {
@@ -422,20 +414,6 @@
       "incomplete": "Use todos os blocos uma vez — a armação ainda não está completa.",
       "wrong": "Ainda não. Leia em voz alta: primeiro quem, depois o verbo, depois a coisa.",
       "cleared": "Blocos devolvidos. Comece pelo sujeito."
-    },
-    "note": {
-      "1": "Sujeito, V2, substantivo. Nada depois do substantivo.",
-      "2": "V1 aceita uma emoção como seu substantivo.",
-      "3": "V2 no passado e depois a coisa sobre a qual agiu.",
-      "4": "Sujeito plural leva were.",
-      "5": "O sujeito vem primeiro, sempre.",
-      "6": "Curto não é errado. Curto é a regra.",
-      "7": "Will mantém o verbo na forma simples.",
-      "8": "Sujeito singular leva was.",
-      "9": "Um sujeito, um verbo, um substantivo.",
-      "10": "A terceira pessoa do singular acrescenta o -s.",
-      "11": "A primeira pessoa mantém o verbo simples.",
-      "12": "V2 no passado não precisa de ajudante numa afirmação."
     }
   },
   "game04": {
@@ -448,38 +426,6 @@
     "fb": {
       "empty": "Escreva primeiro uma forma do verbo to be.",
       "wrong": "Essa não. {hint} Tente de novo."
-    },
-    "hint": {
-      "1": "Presente, sujeito singular.",
-      "2": "Passado, sujeito plural.",
-      "3": "Presente, primeira pessoa.",
-      "4": "Passado, sujeito plural.",
-      "5": "Presente, terceira pessoa do singular.",
-      "6": "Futuro — duas palavras.",
-      "7": "Passado, sujeito singular.",
-      "8": "Presente ou passado, segunda pessoa.",
-      "9": "Presente, sujeito plural.",
-      "10": "Terceira pessoa do singular.",
-      "11": "Sujeito plural.",
-      "12": "Futuro — duas palavras.",
-      "13": "Passado, terceira pessoa do singular.",
-      "14": "Presente, sujeito plural."
-    },
-    "note": {
-      "1": "Coisa singular no presente: is.",
-      "2": "We / you / they levam were.",
-      "3": "I leva sempre am.",
-      "4": "Sujeito plural no passado: were.",
-      "5": "He / she / it levam is.",
-      "6": "O futuro é will be para todos os sujeitos.",
-      "7": "Not vem logo depois de V1.",
-      "8": "You leva are no presente e were no passado.",
-      "9": "Sujeito plural no presente: are.",
-      "10": "It leva is ou was — nunca are.",
-      "11": "They levam are ou were, e not vem depois de V1.",
-      "12": "Will be sustenta qualquer sujeito no futuro.",
-      "13": "He / she / it levam was no passado.",
-      "14": "Sujeito plural no presente: are."
     }
   },
   "game05": {
@@ -492,66 +438,10 @@
     "fb": {
       "empty": "Escreva a frase inteira e depois confira.",
       "wrong": "Perto, mas não é o padrão. Lembre: o ajudante carrega o tempo verbal, o verbo fica simples."
-    },
-    "task": {
-      "1": "Transforme em pergunta",
-      "2": "Transforme em pergunta",
-      "3": "Transforme em pergunta",
-      "4": "Torne negativa",
-      "5": "Torne negativa",
-      "6": "Transforme em pergunta",
-      "7": "Responda de forma natural na afirmativa",
-      "8": "Responda de forma natural na afirmativa",
-      "9": "Transforme em pergunta",
-      "10": "Torne negativa",
-      "11": "Transforme em pergunta",
-      "12": "Transforme em pergunta"
-    },
-    "note": {
-      "1": "Did carrega o passado, então approve volta à forma simples.",
-      "2": "Does tira o -s de manage.",
-      "3": "Will simplesmente vai para a frente.",
-      "4": "Ajudante mais not, e o verbo fica simples.",
-      "5": "Did not tira o passado de shipped.",
-      "6": "Sent vira send assim que Did aparece na frente.",
-      "7": "A resposta natural solta o ajudante e põe o passado no verbo.",
-      "8": "Sem Does, a terceira pessoa do singular recupera o -s.",
-      "9": "We leva Do, e hire fica simples.",
-      "10": "Not fica entre will e o verbo.",
-      "11": "Reached vira reach depois de Did.",
-      "12": "Does tira o -s de closes."
     }
   },
   "game06": {
-    "instructions": "Escolha o ajudante que combina com a situação. O registro importa tanto quanto a gramática. Dez respostas corretas ganham a chave.",
-    "context": {
-      "1": "Você está apresentando para um conselho de administração",
-      "2": "Pedindo um arquivo a um colega",
-      "3": "Um prazo contratual rígido",
-      "4": "Pedindo uma opinião ao seu gestor",
-      "5": "Começando uma videochamada",
-      "6": "Checando a disponibilidade de uma colega",
-      "7": "Aconselhando um vendedor novo",
-      "8": "Um pedido educado a um cliente",
-      "9": "Exigência de compliance",
-      "10": "Pedido formal por escrito",
-      "11": "Escolher a forma certa depois de um ajudante",
-      "12": "Recomendação negativa numa reunião de estratégia"
-    },
-    "note": {
-      "1": "May é a palavra de permissão formal — a certa para um conselho.",
-      "2": "Could suaviza o pedido sem torná-lo formal.",
-      "3": "Must enuncia uma obrigação que não se negocia.",
-      "4": "Should pede uma opinião, não permissão.",
-      "5": "Can é a palavra de permissão do dia a dia entre colegas.",
-      "6": "Can pergunta sobre possibilidade, e o verbo depois dele fica simples.",
-      "7": "Should é conselho. Must soaria como ordem.",
-      "8": "Could é o registro mais seguro com um cliente.",
-      "9": "Uma regra que não pode ser quebrada leva must.",
-      "10": "May mantém um pedido escrito formal e educado.",
-      "11": "O ajudante carrega o tempo verbal, então o verbo fica simples.",
-      "12": "Not vem logo depois do ajudante: should not discount."
-    }
+    "instructions": "Escolha o ajudante que combina com a situação. O registro importa tanto quanto a gramática. Dez respostas corretas ganham a chave."
   },
   "game07": {
     "instructions": "Leia a carta, diga sua resposta em voz alta e depois vire. Avalie-se com honestidade — só as cartas que você realmente sabia fazem você avançar. Dez dessas ganham o sino.",
@@ -565,31 +455,10 @@
       "compare": "Sua resposta bateu com a carta?",
       "knew": "Arquivada como conhecimento ativo. Próxima carta.",
       "missed": "Fica no baralho — ela volta antes do fim."
-    },
-    "detail": {
-      "1": "At marca um ponto exato no tempo.",
-      "2": "In envolve meses, anos e estações.",
-      "3": "On acompanha superfícies — e dias: on Monday.",
-      "4": "Under significa abaixo da linha que você definiu.",
-      "5": "O advérbio descreve um verbo de ação; adjetivos descrevem substantivos.",
-      "6": "Decision é substantivo, então leva adjetivo.",
-      "7": "Let's + V2 é o jeito mais rápido de mover uma reunião.",
-      "8": "Since marca um único ponto de início.",
-      "9": "From … to … marca as duas pontas de um período.",
-      "10": "Substantivos em -tion se emparelham com V1: the presentation is ready.",
-      "11": "informa-shun, produc-shun, nego-shi-a-shun.",
-      "12": "Dias da semana levam on.",
-      "13": "In significa dentro de algo.",
-      "14": "A forma em -ly descreve como a ação aconteceu."
     }
   },
   "game08": {
     "instructions": "Dez rodadas no palco. Diga a palavra se o seu navegador puder ouvir, ou mude para uma rodada de escuta e nomeie a família de som.",
-    "family": {
-      "R": "R do cachorro bravo",
-      "E": "E longo do cachorro feliz",
-      "SHUN": "A terminação -shun"
-    },
     "ui": {
       "listening": "Ouvindo…",
       "heard": "Ouvi: {text}",
@@ -610,22 +479,6 @@
       "micFailed": "O microfone não conseguiu iniciar, então esta rodada vira de escuta.",
       "switched": "Rodada de escuta, então.",
       "family": "Essa palavra pertence a {family}. {tip}"
-    },
-    "tip": {
-      "1": "Dois rosnados: quar-ter.",
-      "2": "Mantenha o sorriso: mee-ting.",
-      "3": "presenta-shun.",
-      "4": "per-son, com a língua puxada para trás.",
-      "5": "Uma vogal longa e larga: teeem.",
-      "6": "informa-shun.",
-      "7": "Um rosnado grave, sem vibrar.",
-      "8": "O E longo cai no fim.",
-      "9": "produc-shun.",
-      "10": "O R fecha a palavra.",
-      "11": "Sorria do começo ao fim.",
-      "12": "negotia-shun.",
-      "13": "O R rosna no meio.",
-      "14": "Vogal longa, final curto."
     }
   },
   "game09": {
@@ -640,48 +493,6 @@
       "empty": "Escreva primeiro a palavra que falta.",
       "good": "Vocabulário ativo.",
       "wrong": "Não é a palavra que este cenário usa. Imagine a reunião e tente de novo."
-    },
-    "context": {
-      "1": "Revisão trimestral",
-      "2": "Kickoff com cliente",
-      "3": "Negociação de preço",
-      "4": "Lançamento de produto",
-      "5": "Pipeline comercial",
-      "6": "Atualização para o conselho",
-      "7": "Reunião com stakeholders",
-      "8": "Desempenho de marketing",
-      "9": "Registro de riscos do projeto",
-      "10": "Pitch para investidores",
-      "11": "Passagem de conta",
-      "12": "Revisão de contrato"
-    },
-    "label": {
-      "1": "Substantivo",
-      "2": "V2",
-      "3": "Substantivo",
-      "4": "V2 (passado)",
-      "5": "V2 (passado)",
-      "6": "Substantivo",
-      "7": "V2",
-      "8": "V2",
-      "9": "V2",
-      "10": "Substantivo",
-      "11": "V2",
-      "12": "V2"
-    },
-    "note": {
-      "1": "Um forecast se revise, se miss ou se beat.",
-      "2": "Faz-se onboard de um cliente, um time ou uma ferramenta.",
-      "3": "Uma concern se raise, se address ou se share.",
-      "4": "Faz-se launch de uma campanha, um produto ou um piloto.",
-      "5": "Um deal se close — nunca se «finish».",
-      "6": "Margens, times e orçamentos ficam under pressure.",
-      "7": "Você faz walk alguém through um documento ou um plano.",
-      "8": "Um target se hit ou se miss.",
-      "9": "Um risco se flag cedo, ou se raise na reunião.",
-      "10": "Market opportunity e market size funcionam os dois aqui.",
-      "11": "Faz-se hand over de uma conta, um projeto ou um turno.",
-      "12": "O jurídico revisa os termos e depois aprova."
     }
   }
 }

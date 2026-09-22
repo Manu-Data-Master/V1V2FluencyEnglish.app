@@ -32,6 +32,37 @@
 
 .credits-block p:last-child { margin-bottom: 0; }
 
+.author-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.author-photo {
+  flex: 0 0 auto;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-gold);
+}
+
+.author-link {
+  display: inline-block;
+  margin-left: var(--space-2);
+  color: var(--color-gold-deep);
+  font-weight: var(--weight-bold);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.author-link:hover,
+.author-link:focus-visible { text-decoration: underline; }
+
+@media (max-width: 480px) {
+  .author-row { flex-direction: column; align-items: center; text-align: center; }
+}
+
 .credits-footer {
   font-family: var(--font-utility);
   font-size: var(--size-xs);

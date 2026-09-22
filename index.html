@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Nine Keys of Simi Valley — English Treasure Hunt</title>
   <meta name="description" content="A gamified treasure hunt across nine real Simi Valley locations that teaches business English with the Alternative Grammar method.">
+  <link rel="icon" href="assets/images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180.png">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/left_menu.css">
@@ -51,6 +55,34 @@
       <div class="modal-text" id="howto-modal-body"></div>
       <div class="modal-actions">
         <button type="button" class="btn btn-primary" id="howto-modal-ok">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Location info modal (custom component, content filled per location) -->
+  <div class="modal-backdrop" id="location-modal" hidden>
+    <div class="modal-box is-info is-location" role="dialog" aria-modal="true" aria-labelledby="location-modal-title">
+      <button type="button" class="modal-close" id="location-modal-close" aria-label="Close">&times;</button>
+      <div class="location-modal-head">
+        <img class="location-modal-photo" id="location-modal-photo" src="" alt="">
+        <div class="location-modal-head-text">
+          <p class="location-modal-eyebrow" id="location-modal-eyebrow"></p>
+          <h2 class="location-modal-title" id="location-modal-title"></h2>
+        </div>
+      </div>
+      <div class="location-modal-body">
+        <div class="location-modal-block">
+          <p class="location-modal-label" id="location-modal-history-label">History</p>
+          <p id="location-modal-history"></p>
+        </div>
+        <div class="location-modal-block">
+          <p class="location-modal-label" id="location-modal-learn-label">You'll learn</p>
+          <p id="location-modal-concept"></p>
+        </div>
+        <div class="location-modal-block">
+          <p class="location-modal-label" id="location-modal-object-label">Find this object</p>
+          <p id="location-modal-object"></p>
+        </div>
       </div>
     </div>
   </div>

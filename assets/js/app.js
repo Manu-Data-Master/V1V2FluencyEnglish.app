@@ -13,9 +13,22 @@
   var footerPlaceholder = document.getElementById("footer-placeholder");
   var menuBackdrop = document.getElementById("menu-backdrop");
   var resetModal = document.getElementById("reset-modal");
+  var locationModal = document.getElementById("location-modal");
 
   var loadedGames = {};
   var currentRoute = "";
+
+  var LOCATION_PHOTOS = {
+    "01": "assets/images/1_ronald_reagan_presidential_library.png",
+    "02": "assets/images/2_corriganville_park.png",
+    "03": "assets/images/3_strathearn_historical_park.png",
+    "04": "assets/images/4_santa_susana_depot.png",
+    "05": "assets/images/5_chumash_indian_museum.png",
+    "06": "assets/images/6_rocky_peak_park.png",
+    "07": "assets/images/7_mount_mccoy_cross.png",
+    "08": "assets/images/8_simi_valley_cultural_arts_center.png",
+    "09": "assets/images/9_rancho_simi_community_park.png"
+  };
 
   /* ---------- Fetch helpers ---------- */
 
@@ -209,6 +222,62 @@
     });
   }
 
+  /* ---------- Location info modal ---------- */
+
+  var lastFocusedBeforeLocationModal = null;
+
+  function openLocationModal(locationId) {
+    var location = engine.getLocation(locationId);
+    if (!location || !locationModal) {
+      return;
+    }
+    document.getElementById("location-modal-eyebrow").textContent = t("place" + locationId + ".t01");
+    document.getElementById("location-modal-title").textContent = location.place;
+    var photo = document.getElementById("location-modal-photo");
+    photo.src = LOCATION_PHOTOS[locationId] || "";
+    photo.alt = location.place;
+    document.getElementById("location-modal-history-label").textContent = t("locationModal.t01");
+    document.getElementById("location-modal-history").textContent = t("history." + locationId);
+    document.getElementById("location-modal-learn-label").textContent = t("locationModal.t02");
+    document.getElementById("location-modal-concept").textContent = t("place" + locationId + ".t04");
+    document.getElementById("location-modal-object-label").textContent = t("locationModal.t03");
+    document.getElementById("location-modal-object").innerHTML = t("place" + locationId + ".t03");
+
+    lastFocusedBeforeLocationModal = document.activeElement;
+    locationModal.hidden = false;
+    document.getElementById("location-modal-close").focus();
+    document.addEventListener("keydown", handleLocationModalKeys);
+  }
+
+  function closeLocationModal() {
+    if (!locationModal) {
+      return;
+    }
+    locationModal.hidden = true;
+    document.removeEventListener("keydown", handleLocationModalKeys);
+    if (lastFocusedBeforeLocationModal && lastFocusedBeforeLocationModal.focus) {
+      lastFocusedBeforeLocationModal.focus();
+    }
+  }
+
+  function handleLocationModalKeys(event) {
+    if (event.key === "Escape") {
+      closeLocationModal();
+    }
+  }
+
+  function wireLocationModal() {
+    if (!locationModal) {
+      return;
+    }
+    document.getElementById("location-modal-close").addEventListener("click", closeLocationModal);
+    locationModal.addEventListener("click", function (event) {
+      if (event.target === locationModal) {
+        closeLocationModal();
+      }
+    });
+  }
+
   /* ---------- Left menu ---------- */
 
   function buildMenu() {
@@ -310,6 +379,16 @@
       card.appendChild(top);
 
       card.appendChild(element("h3", "map-card-place", location.place));
+
+      var infoLink = element("button", "map-card-learn-more");
+      infoLink.type = "button";
+      infoLink.innerHTML = "<span aria-hidden=\"true\">ℹ️</span> " + t("map.learnMore");
+      infoLink.setAttribute("aria-label", t("map.infoAria", { place: location.place }));
+      infoLink.addEventListener("click", function () {
+        openLocationModal(location.id);
+      });
+      card.appendChild(infoLink);
+
       card.appendChild(element("p", "map-card-concept", t("concept." + location.id)));
 
       var status = element("p", "map-card-status", t(location.status === "completed" ? "map.done" : "map.notVisited"));
@@ -326,6 +405,78 @@
       grid.appendChild(card);
     });
     updateMapProgress();
+  }
+
+  var MAP_PIN_POSITIONS = {
+    "01": { left: 7.2, top: 53.6 },  // 1. Ronald Reagan Presidential Library
+    "02": { left: 93.4, top: 49.1 }, // 2. Corriganville Park
+    "03": { left: 31.7, top: 41.8 }, // 3. Strathearn Historical Park
+    "04": { left: 80.5, top: 53.6 }, // 4. Santa Susana Depot
+    "05": { left: 9.5, top: 94.9 },  // 5. Chumash Indian Museum
+    "06": { left: 93.8, top: 10.2 }, // 6. Rocky Peak Park
+    "07": { left: 15.9, top: 49.2 }, // 7. Mount McCoy Cross
+    "08": { left: 51.2, top: 44.5 }, // 8. Simi Valley Cultural Arts Center
+    "09": { left: 34.5, top: 52.0 }  // 9. Rancho Simi Community Park
+  };
+
+  function renderMapPins() {
+    var container = document.getElementById("story-map-pins");
+    if (!container) {
+      return;
+    }
+    container.innerHTML = "";
+    engine.getLocations().forEach(function (location) {
+      var pos = MAP_PIN_POSITIONS[location.id];
+      if (!pos) {
+        return;
+      }
+      var pin = element("button", "map-pin");
+      pin.type = "button";
+      pin.style.left = pos.left + "%";
+      pin.style.top = pos.top + "%";
+      var photoUrl = LOCATION_PHOTOS[location.id] || "";
+      if (photoUrl) {
+        photoUrl = new URL(photoUrl, document.baseURI).href;
+      }
+      pin.style.setProperty("--pin-photo", "url('" + photoUrl + "')");
+      pin.setAttribute("aria-label", t("map.infoAria", { place: location.place }));
+
+      pin.appendChild(element("span", "map-pin-label", location.place));
+
+      pin.addEventListener("click", function () {
+        openLocationModal(location.id);
+      });
+
+      container.appendChild(pin);
+    });
+  }
+
+  function renderCreditsPhotos() {
+    var grid = document.getElementById("credits-photo-grid");
+    if (!grid) {
+      return;
+    }
+    grid.innerHTML = "";
+    engine.getLocations().forEach(function (location) {
+      var item = element("button", "credits-photo-item");
+      item.type = "button";
+      item.setAttribute("aria-label", t("map.infoAria", { place: location.place }));
+
+      var photo = element("img", "credits-photo-thumb");
+      photo.src = LOCATION_PHOTOS[location.id] || "";
+      photo.alt = "";
+      photo.setAttribute("aria-hidden", "true");
+      photo.loading = "lazy";
+      item.appendChild(photo);
+
+      item.appendChild(element("span", "credits-photo-caption", location.place));
+
+      item.addEventListener("click", function () {
+        openLocationModal(location.id);
+      });
+
+      grid.appendChild(item);
+    });
   }
 
   function updateMapProgress() {
@@ -508,6 +659,9 @@
 
       if (route === "home") {
         renderMapCards();
+        renderMapPins();
+      } else if (route === "credits") {
+        renderCreditsPhotos();
       } else if (route === "final") {
         renderFinalReveal();
       } else if (route.indexOf("place/") === 0) {
@@ -563,6 +717,7 @@
 
   function boot() {
     wireResetModal();
+    wireLocationModal();
 
     var sections = [
       { placeholder: headerPlaceholder, url: "assets/sections/header.html", after: wireHeader },

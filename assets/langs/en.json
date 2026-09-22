@@ -10,8 +10,8 @@
   },
   "header": {
     "t01": "Menu",
-    "t02": "Simi Valley, California",
-    "t03": "The Nine Keys",
+    "t02": "New Grammar Lessons",
+    "t03": "The Nine Keys of Simi Valley, CA",
     "t05": "<span aria-hidden=\"true\">⚠️</span> Reset Hunt",
     "iconsLabel": "Objects collected",
     "languageLabel": "Language",
@@ -563,7 +563,9 @@
     "notVisited": "Not visited",
     "explore": "Explore",
     "exploreAria": "Explore {place}",
-    "progress": "{count} of {total} locations completed"
+    "progress": "{count} of {total} locations completed",
+    "infoAria": "Learn more about {place}",
+    "learnMore": "Learn more"
   },
   "place": {
     "started": "Game started — good luck!",
@@ -579,5 +581,21 @@
     "07": "The Small Rules",
     "08": "The Sound of American English",
     "09": "Words You Can Actually Use"
+  },
+  "locationModal": {
+    "t01": "History",
+    "t02": "You'll learn",
+    "t03": "Find this object"
+  },
+  "history": {
+    "01": "Perched on a hilltop above the valley, this library holds the 40th president's papers and gifts, and its dedicated pavilion houses the actual Air Force One that flew seven presidents.",
+    "02": "Once the \"Corriganville Movie Ranch,\" built by stuntman Ray \"Crash\" Corrigan, this land stood in for hundreds of Western towns and movie sets before it became the quiet public park it is today.",
+    "03": "The Strathearn family's adobe and Victorian farmhouse anchor this open-air museum, which preserves the ranching and pioneer life that shaped Simi Valley before it was a city.",
+    "04": "Built in 1903 for the Southern Pacific Railroad, this wooden depot is one of the last of its kind still standing from the valley's early rail years.",
+    "05": "This museum and native garden honor the Chumash people, who lived in this valley for thousands of years before any train, ranch or freeway arrived.",
+    "06": "A ridge of weathered boulders rising along the valley's edge, this park is one of the region's favorite hikes for its wide views over Simi Valley and beyond.",
+    "07": "A hilltop cross and trail that has watched over the valley for generations, popular today with hikers chasing the sunrise or sunset view.",
+    "08": "The city's home for live theater, music and community events, and the stage where much of Simi Valley's cultural life actually happens.",
+    "09": "One of the valley's largest parks, with sports fields, picnic areas and trails — the place where the valley gathers on a Sunday afternoon."
   }
 }

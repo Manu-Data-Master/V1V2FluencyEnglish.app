@@ -20,7 +20,8 @@
   },
   "header": {
     "t01": "Menu",
-    "t03": "As Nove Chaves",
+    "t02": "Novas Lições de Gramática",
+    "t03": "As Nove Chaves de Simi Valley, CA",
     "t05": "<span aria-hidden=\"true\">⚠️</span> Reiniciar caça",
     "iconsLabel": "Objetos reunidos",
     "languageLabel": "Idioma",
@@ -50,7 +51,9 @@
     "notVisited": "Não visitado",
     "explore": "Explorar",
     "exploreAria": "Explorar {place}",
-    "progress": "{count} de {total} lugares concluídos"
+    "progress": "{count} de {total} lugares concluídos",
+    "infoAria": "Mais informações sobre {place}",
+    "learnMore": "Saiba mais"
   },
   "place": {
     "started": "Jogo iniciado — boa sorte!",
@@ -494,5 +497,21 @@
       "good": "Vocabulário ativo.",
       "wrong": "Não é a palavra que este cenário usa. Imagine a reunião e tente de novo."
     }
+  },
+  "locationModal": {
+    "t01": "História",
+    "t02": "O que você vai aprender",
+    "t03": "O objeto que você procura"
+  },
+  "history": {
+    "01": "Empoleirada numa colina acima do vale, esta biblioteca guarda os documentos e presentes do quadragésimo presidente, e seu pavilhão especial abriga o próprio Air Force One que levou sete presidentes.",
+    "02": "Antes conhecido como «Corriganville Movie Ranch», construído pelo dublê Ray «Crash» Corrigan, este terreno serviu de cenário para centenas de cidades do velho oeste e sets de filmagem antes de virar o tranquilo parque público que é hoje.",
+    "03": "A casa de adobe e a residência vitoriana da família Strathearn são o coração deste museu a céu aberto, que preserva a vida rural e pioneira que moldou Simi Valley antes de ela ser uma cidade.",
+    "04": "Construído em 1903 para a ferrovia Southern Pacific, este depósito de madeira é um dos últimos do seu tipo ainda de pé dos primeiros anos ferroviários do vale.",
+    "05": "Este museu e jardim nativo homenageiam o povo chumash, que viveu neste vale por milhares de anos antes de qualquer trem, rancho ou rodovia.",
+    "06": "Uma crista de pedras desgastadas que se ergue na borda do vale; este parque é uma das trilhas favoritas da região por suas amplas vistas de Simi Valley e além.",
+    "07": "Uma cruz e uma trilha no topo de uma colina que observa o vale há gerações, hoje popular entre quem busca ver o nascer ou o pôr do sol.",
+    "08": "A casa da cidade para teatro ao vivo, música e eventos comunitários: o palco onde realmente acontece boa parte da vida cultural de Simi Valley.",
+    "09": "Um dos maiores parques do vale, com campos esportivos, áreas de piquenique e trilhas: o lugar onde o vale se reúne num domingo à tarde."
   }
 }

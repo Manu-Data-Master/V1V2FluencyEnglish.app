@@ -13,11 +13,27 @@
 
 .place-header .place-name {
   font-family: var(--font-utility);
-  font-size: var(--size-xs);
+  font-size: var(--size-md);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   color: var(--color-gold-deep);
-  margin: 0 0 var(--space-2) 0;
+  margin: 0;
+}
+
+.place-name-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.place-photo {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-gold);
 }
 
 .place-title {
@@ -508,6 +524,10 @@
 .reward-name {
   font-size: var(--size-xl);
   margin: var(--space-3) 0 var(--space-1);
+}
+
+.reward-card .reward-name {
+  color: var(--color-navy-deep);
 }
 
 .reward-place {

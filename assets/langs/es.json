@@ -20,7 +20,8 @@
   },
   "header": {
     "t01": "Menú",
-    "t03": "Las Nueve Claves",
+    "t02": "Nuevas Lecciones de Gramática",
+    "t03": "Las Nueve Claves de Simi Valley, CA",
     "t05": "<span aria-hidden=\"true\">⚠️</span> Reiniciar cacería",
     "iconsLabel": "Objetos reunidos",
     "languageLabel": "Idioma",
@@ -50,7 +51,9 @@
     "notVisited": "Sin visitar",
     "explore": "Explorar",
     "exploreAria": "Explorar {place}",
-    "progress": "{count} de {total} lugares completados"
+    "progress": "{count} de {total} lugares completados",
+    "infoAria": "Más información sobre {place}",
+    "learnMore": "Más información"
   },
   "place": {
     "started": "Juego iniciado — ¡mucha suerte!",
@@ -494,5 +497,21 @@
       "good": "Vocabulario activo.",
       "wrong": "No es la palabra que usa este escenario. Imagina la reunión y prueba otra vez."
     }
+  },
+  "locationModal": {
+    "t01": "Historia",
+    "t02": "Lo que aprenderás",
+    "t03": "El objeto que buscas"
+  },
+  "history": {
+    "01": "Encaramada en una colina sobre el valle, esta biblioteca resguarda los papeles y regalos del cuadragésimo presidente, y su pabellón especial alberga el propio Air Force One que llevó a siete presidentes.",
+    "02": "Antes conocido como «Corriganville Movie Ranch», construido por el especialista Ray «Crash» Corrigan, este terreno sirvió de escenario a cientos de pueblos del oeste y platós de cine antes de convertirse en el tranquilo parque público que es hoy.",
+    "03": "La casa de adobe y la vivienda victoriana de la familia Strathearn son el corazón de este museo al aire libre, que conserva la vida rural y pionera que dio forma a Simi Valley antes de que fuera una ciudad.",
+    "04": "Construido en 1903 para el ferrocarril Southern Pacific, este depósito de madera es uno de los últimos de su tipo que sigue en pie desde los primeros años del ferrocarril en el valle.",
+    "05": "Este museo y jardín nativo honran al pueblo chumash, que vivió en este valle durante miles de años antes de que llegara cualquier tren, rancho o autopista.",
+    "06": "Una cresta de rocas erosionadas que se eleva en el borde del valle; este parque es una de las caminatas favoritas de la región por sus amplias vistas de Simi Valley y más allá.",
+    "07": "Una cruz y un sendero en la cima de una colina que ha vigilado el valle durante generaciones, hoy popular entre quienes buscan ver el amanecer o el atardecer.",
+    "08": "La sede de la ciudad para el teatro en vivo, la música y los eventos comunitarios: el escenario donde realmente ocurre buena parte de la vida cultural de Simi Valley.",
+    "09": "Uno de los parques más grandes del valle, con canchas deportivas, zonas de picnic y senderos: el lugar donde el valle se reúne un domingo por la tarde."
   }
 }
